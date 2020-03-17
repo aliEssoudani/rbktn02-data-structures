@@ -1,12 +1,6 @@
 var Stack = function() {
-  // var returnedStack= function(){};
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
-  // returnedStack.prototype.last=0;
   this.last=0;
   this.storage={};
-  // returnedStack.prototype.storage={};
-  //  return returnedStack;
 };
 
 
@@ -27,7 +21,6 @@ Stack.prototype.pop=function(){
   delete this.storage[this.last];
   return temp;
 }
-
 
 
 
