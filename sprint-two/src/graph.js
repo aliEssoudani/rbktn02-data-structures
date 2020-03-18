@@ -1,4 +1,35 @@
 
+// class Graph {
+
+//   constructor(number) {
+
+//       this.number = number;
+//       this.node = new Map();
+//   }
+//   addNode(value) {
+
+//       this.node.set(value, []);
+//   }
+//   addEdge(value, l){
+
+
+//     this.node.get(value).push(l);
+
+
+//     this.node.get(l).push(value);
+// }
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 // Instantiate a new graph
 var Graph = function() {
