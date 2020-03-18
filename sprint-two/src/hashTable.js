@@ -48,8 +48,39 @@ HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   this._storage[index] = undefined;
 };
+//////////////////////////////////////////////////es6 and Map.
 
 
+function hash(key, size) {
+  var hash = 0;
+  for (var i = 0; i < key.length; i++) {
+    hash = key.charCodeAt(i);
+  }
+  return hash % size;
+}
+class HashTable {
+  constructor(size) {
+    this.size = size;
+    this.storage = new Array(this.size);
+    for (let i = 0; i < this.storage.length; i++) {
+      this.storage[i] = new Map();
+    }
+  }
+  insert(key, value) {
+    var index = hash(key, this.size);
+    this.storage[index].set(key, value);
+  }
+  search(key) {
+    var index = hash(key, this.size);
+    return this.storage[index].get(key);
+  }
+  delete(key) {
+    var index = hash(key, this.size);
+    var tempValue = this.search(key);
+    this.storage[index].delete(key);
+    return tempValue;
+  }
+}
 
 /*
  * Complexity: What is the time complexity of the above functions?
