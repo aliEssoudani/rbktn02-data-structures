@@ -1,45 +1,31 @@
-// var LinkedList = function() {
-//   var list = {};
-//   list.head = null;
-//   list.tail = null;
+class Tree{
+  constructor(value){
+      this.data = value;
+      this.childs = [] ;
+  }
+  add (value, target){
 
-//   list.addToTail = function(value) {
-//     var node = Node (value);
-//     if(this.head === null){
-//         this.head = node;
-//         this.tail = node;
-//     } else{
-//         var cur = this.head;
-//         while(cur.next){
-//             cur = cur.next;
-//         }
-//         cur.next = node;
-//         this.tail = node;
-//     }
-//     //return list.tail.value;
-//   };
-
-//   list.removeHead = function() {
-//   };
-
-//   list.contains = function(target) {
-//   };
-
-//   list.print = function(){
-
-//   }
-
-//   return list;
-// };
-
-// var Node = function(value) {
-//   var node = {};
-
-//   node.value = value;
-//   node.next = null;
-
-//   return node;
-// };
+      if(this.data === target){
+          this.childs.push(new Tree(value));
+          return;
+      }else{
+          for(var i  = 0 ; i < this.childs.length; i++){
+              this.childs[i].add(value, target);
+          }
+      }
+  }
+  contain(target){
+      if(this.data === target){
+          return true;
+      }
+      for( var i = 0; i < this.childs.length ; i++){
+          if(this.childs[i].contain(target)){
+              return true
+          }
+      }
+      return false;
+  }
+}
 
 // /*
 //  * Complexity: What is the time complexity of the above functions?
